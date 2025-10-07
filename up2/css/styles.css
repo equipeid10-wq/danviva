@@ -46,24 +46,24 @@ p#text1, p#text2, p#text3, p#text4 {
     max-width: 80px;
     min-height: 36px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     position: absolute;
 }
 
 p#text1 {
-    left: 38px;
+    left: 33px;
 }
 
 p#text2 {
-    left: 32px;
+    left: 29px;
 }
 
 p#text3 {
-    left: 52px;
+    left: 32px;
 }
 
 p#text4 {
-    left: 44px;
+    left: 37px;
 }
 
 .progress-item {
@@ -84,7 +84,7 @@ p#text4 {
     width: 0;
     height: 4px;
     border-radius: 4px;
-    background-color: #4CAF50;
+    background-color: #831BD1;
     transition: width 0.8s ease-out;
 }
 
@@ -133,12 +133,12 @@ span.bold {
 
 span.bold2 {
     font-weight: bold;
-    color: #254DDB;
+    color: #831BD1;
 }
 
 span.bold3 {
     font-weight: bold;
-    color: #00B309;
+    color: #831BD1;
 }
 
 span.bold4 {
@@ -151,8 +151,8 @@ section > button {
     font-weight: 600;
     border-radius: 10px 10px 10px 10px;
     padding: 15px 30px 15px 30px;
-    background-color: #2D6EFF;
-    color: white;
+    background-color: #831BD1;
+    color: rgb(255, 255, 255);
     border: none;
     margin-top: 15px;
 }
@@ -234,15 +234,15 @@ div#trace {
     font-size: 28px;
     line-height: 20px;
     text-align: center;
-    color: #00B309;
+    color: #831BD1;
     font-weight: bold;
     text-decoration: underline;
-    margin-top: 35px;
+    margin-top: 24px;
     margin-bottom: 15px;
 }
 
 .modal-content > div#step2 > h1#value {
-    font-size: 60px;
+    font-size: 45px;
     text-decoration: none;
 }
 
@@ -251,11 +251,14 @@ div#trace {
     font-weight: 600;
     border-radius: 10px 10px 10px 10px;
     padding: 15px 30px 15px 30px;
-    background-color: #2D6EFF;
-    color: white;
+    background-color: #831BD1;
+    color: rgb(255, 255, 255);
+    border: none;
+    margin-top: 15px;
+    display: inline-block;
     text-decoration: none;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .modal-content > div#step2 > p:last-child {

